@@ -14,30 +14,31 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   mail:
-    host: localhost
-    port: 1025
-    username: abdelmatine
-    password: abdelmatine
+    host: smtp.gmail.com
+    port: 465
+    username: abdelmatine.sfar@esprit.tn
+    password: nwducguzttgkvrfd
     properties:
       mail:
         smtp:
+          auth: true
+        ssl:
           trust: "*"
-        auth: true
+          enable: true
         starttls:
           enabled: true
         connectiontimeout: 5000
         timeout: 3000
         writetimeout: 5000
-application:
+    protocol: smtp
+
   security:
-    jwt:
-      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
-      expiration: 86400000 # a day
-      refresh-token:
-        expiration: 604800000 # 7 days
-  mailing:
-    frontend:
-      activation-url: http://localhost:4200/activate-account
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://localhost:9090/realms/ktebi-tn"
+          
+application:
   file:
     uploads:
       photos-output-path: ./uploads

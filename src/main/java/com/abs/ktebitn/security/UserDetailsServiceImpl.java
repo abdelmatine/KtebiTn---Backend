@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.abs.ktebitn.user.UserRepository;
 
-@Service
+//@Service
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 	
